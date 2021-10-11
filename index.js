@@ -6,6 +6,10 @@ const bot = new Discord.Client({
 });
 const mysql = require('mysql');
 
+process.on('unhandledRejection', (reason, promise) => {
+    console.log('Unhandled Rejection at:', reason.stack || reason)
+});
+
 bot.config = config;
 bot.mysql = mysql;
 bot.commands = new Discord.Collection();
